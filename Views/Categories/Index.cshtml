@@ -1,0 +1,40 @@
+﻿@model IEnumerable<PharmacyModel.Models.Categorie>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+<div class="text-center">
+    <img src="~/Images/clienti.jpg" asp-append-version="true" style="height:200px;object-fit: cover;">
+</div>
+
+<center><h1>CATEGORII MEDICAMENTE</h1></center>
+
+<p>
+    <i class="fas fa-plus-circle"><a asp-action="Create">Adaugă un nou produs</a></i>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeCategorie)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumeCategorie)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CategorieID">Editează</a> |
+                    <a asp-action="Details" asp-route-id="@item.CategorieID">Detalii</a> |
+                    <a asp-action="Delete" asp-route-id="@item.CategorieID">Şterge</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,53 @@
+﻿@model PharmacyModel.Models.Furnizor
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Adaugă un nou furnizor</h1>
+
+<h4>Furnizor</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FurnizorID" class="control-label"></label>
+                <input asp-for="FurnizorID" class="form-control" />
+                <span asp-validation-for="FurnizorID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumeFurnizor" class="control-label"></label>
+                <input asp-for="NumeFurnizor" class="form-control" />
+                <span asp-validation-for="NumeFurnizor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adresa" class="control-label"></label>
+                <input asp-for="Adresa" class="form-control" />
+                <span asp-validation-for="Adresa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Telefon" class="control-label"></label>
+                <input asp-for="Telefon" class="form-control" />
+                <span asp-validation-for="Telefon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Adaugă" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Înapoi la lista completă</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

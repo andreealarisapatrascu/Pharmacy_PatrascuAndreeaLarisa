@@ -1,0 +1,43 @@
+﻿@model PharmacyModel.Models.Furnizor
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+    <h3>Sunteţi sigur că doriţi să eliminaţi acest furnizor?</h3>
+<div>
+    <h4>Furnizor</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NumeFurnizor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NumeFurnizor)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Adresa)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Adresa)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Telefon)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Telefon)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="FurnizorID" />
+        <input type="submit" value="Şterge" class="btn btn-danger" /> |
+        <a asp-action="Index">Înapoi la lista completă</a>
+    </form>
+</div>

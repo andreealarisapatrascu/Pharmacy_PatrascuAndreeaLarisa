@@ -1,0 +1,27 @@
+﻿@model PharmacyModel.Models.Categorie
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+@*<h1>Delete</h1>*@
+<p class="text-danger">@ViewData["ErrorMessage"]</p>
+<h3>Sunteţi sigur că doriţi să eliminaţi această categorie?</h3>
+<div>
+    <h4>Categorie</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NumeCategorie)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NumeCategorie)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="CategorieID" />
+        <input type="submit" value="Şterge" class="btn btn-danger" /> |
+        <a asp-action="Index">Înapoi la lista completă</a>
+    </form>
+</div>

@@ -1,0 +1,25 @@
+﻿@model PharmacyModel.Models.Tip
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<h3>Sunteţi sigur că doriţi să ştergeţi acest tip de medicament?</h3>
+<div>
+   
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TipMedicament)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TipMedicament)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="TipID" />
+        <input type="submit" value="Şterge" class="btn btn-danger" /> |
+        <a asp-action="Index">Înapoi la lista completă</a>
+    </form>
+</div>

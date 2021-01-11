@@ -1,0 +1,42 @@
+﻿@model PharmacyModel.Models.Furnizor
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+    <h1>Detalii</h1>
+
+<div>
+    <h4>Furnizor</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NumeFurnizor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NumeFurnizor)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Adresa)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Adresa)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Telefon)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Telefon)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.FurnizorID">Editează</a> |
+    <a asp-action="Index">Înapoi la lista completă</a>
+</div>

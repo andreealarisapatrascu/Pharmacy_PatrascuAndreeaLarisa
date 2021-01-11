@@ -1,0 +1,39 @@
+﻿@model PharmacyModel.Models.Tip
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Adaugă un nou tip de medicament</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col col-lg-4">
+            <img src="~/Images/tip.jpg" asp-append-version="true" style="height:300px;">   
+        </div>
+        <div class="col">
+            <div class="row">
+                <div class="col-md-4">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="TipMedicament" class="control-label"></label>
+                            <input asp-for="TipMedicament" class="form-control" />
+                            <span asp-validation-for="TipMedicament" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Adaugă" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div>
+                <a asp-action="Index">Înapoi la lista completă</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

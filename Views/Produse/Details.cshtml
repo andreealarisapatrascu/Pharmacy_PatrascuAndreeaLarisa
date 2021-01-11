@@ -1,0 +1,58 @@
+﻿@model PharmacyModel.Models.Produs
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+    <h1>Detalii</h1>
+
+    <div>
+        <h4>Produs</h4>
+        <div>
+            @{ var x = "~/Images/" + Model.NumeMedicament + ".jpg";}
+            <img src="@Url.Content(x)" style="width:100px; height:100px;" />
+        </div>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.NumeMedicament)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.NumeMedicament)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Doza)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Doza)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Pret)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Pret)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DataExpirare)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DataExpirare)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Categorie)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Categorie.NumeCategorie)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Furnizor)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Furnizor.NumeFurnizor)
+            </dd>
+        </dl>
+    </div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ProdusID">Editează</a> |
+    <a asp-action="Index">Înapoi la lista completă</a>
+</div>

@@ -1,0 +1,55 @@
+﻿@model PharmacyModel.Models.Produs
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h3>Sunteţi sigur că doriţi să ştergeţi acest produs?</h3>
+<div>
+    <h4>Produs</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NumeMedicament)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NumeMedicament)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Doza)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Doza)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Pret)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Pret)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataExpirare)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataExpirare)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Categorie)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Categorie.CategorieID)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Furnizor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Furnizor.FurnizorID)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ProdusID" />
+        <input type="submit" value="Şterge" class="btn btn-danger" /> |
+        <a asp-action="Index">Înapoi la lista completă</a>
+    </form>
+</div>

@@ -1,0 +1,81 @@
+﻿@*@{
+        ViewData["Title"] = "Chat";
+    }
+    <h1>@ViewData["Title"]</h1>
+    <p>Use this page to chat with other users</p>
+    <div class="container">
+        <div class="row">&nbsp;</div>
+
+        <div class="row">
+            <div class="col-2">Message</div>
+            <div class="col-4"><input type="text" id="messageInput" /></div>
+        </div>
+        <div class="row">&nbsp;</div>
+        <div class="row">
+            <div class="col-6">
+                <input type="button" id="sendButton" value="Send Message" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <hr />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <ul id="messagesList"></ul>
+        </div>
+    </div>
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/chat.js"></script>*@
+
+@{
+    ViewData["Title"] = "ChatBox";
+}
+<h1>@ViewData["Title"]</h1>
+
+
+<style>
+    div.panel-body {
+        overflow: scroll;
+        background: url('http://subtlepatterns.com/patterns/geometry2.png');
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="chat-panel panel panel-default">
+                <div class="panel-heading">
+                    Utilizați ChatBox-ul pentru a discuta cu furnizorii sau cu alţi colegi.
+                    <i class="fa fa-paper-plane fa-fw"></i>
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body" id="messagesList" style="height:250px;">
+                    <input type="hidden" id="displayname" />
+
+                    <p id="discussion"></p>
+                </div>
+                <!-- /.panel-body -->
+                <div class="panel-footer">
+                    <div class="input-group">
+                        <input id="messageInput" type="text" name="message" class="form-control input-sm" placeholder="Type your message here..." />
+
+                        <span class="input-group-btn">
+                            <input type="button" class="btn btn-info" id="sendButton" value="Trimite mesajul">
+
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <img src="~/Images/chat.jpg" asp-append-version="true" style="height:250px;">
+
+        </div>
+    </div>
+</div>
+
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>

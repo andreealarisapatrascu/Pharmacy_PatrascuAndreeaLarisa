@@ -1,0 +1,48 @@
+﻿@model PharmacyModel.Models.Categorie
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalii</h1>
+
+<div>
+    <h4>Categorie</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.NumeCategorie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.NumeCategorie)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Produse)
+        </dt>
+        <dd class="col-sm-10">
+            <table class="table">
+                <tr>
+                    <th>Medicament</th>
+                    <th>Furnizor</th>
+
+                </tr>
+                @foreach (var item in Model.Produse)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NumeMedicament)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Furnizor.NumeFurnizor)
+                        </td>
+
+                    </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.CategorieID">Editează</a> |
+    <a asp-action="Index">Înapoi la lista completă</a>
+</div>

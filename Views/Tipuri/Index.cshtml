@@ -1,0 +1,155 @@
+﻿@*@model IEnumerable<Pharmacy_PatrascuAndreeaLarisa.Models.Tip>
+
+    @{
+        ViewData["Title"] = "Index";
+    }
+
+    <h1>Index</h1>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TipMedicament)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipMedicament)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.TipID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.TipID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.TipID">Delete</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>*@
+@model PharmacyModel.Models.PharmacyViewModels.TipIndexData
+@{
+    ViewData["Title"] = "Tipuri";
+}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+<h2>Tipuri Medicamente</h2>
+<p>
+    <i class="fas fa-plus-circle"><a asp-action="Create">Adaugă</a></i>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tip Medicament</th>
+            <th>Medicamente</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Tipuri)
+        {
+            string selectedRow = "";
+            if (item.TipID == (int?)ViewData["TipID"])
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipMedicament)
+                </td>
+
+                <td>
+                    @{
+                        foreach (var produs in item.FormaProduse)
+                        {
+                            @produs.Produs.ProdusID @: @produs.Produs.NumeMedicament <br />
+                        }
+                    }
+                </td>
+                <td>
+                    <a asp-action="Index" asp-route-id="@item.TipID">Selectează</a> |
+                    <a asp-action="Edit" asp-route-id="@item.TipID">Editează</a> |
+                    <a asp-action="Details" asp-route-id="@item.TipID">Detalii</a> |
+                    <a asp-action="Delete" asp-route-id="@item.TipID">Şterge</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (Model.Produse != null)
+{
+    <h3>Medicamente regăsite sub forma selectată</h3>
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>Nume Medicament</th>
+            <th>Doza</th>
+            <th>Pret</th>
+        </tr>
+        @foreach (var item in Model.Produse)
+        {
+            string selectedRow = "";
+            if (item.ProdusID == (int?)ViewData["ProdusID"])
+            {
+                selectedRow = "success";
+            }
+    <tr class="@selectedRow">
+        <td>
+            @Html.ActionLink("Selectează", "Index", new { produsID = item.ProdusID })
+        </td>
+        <td>
+            @item.NumeMedicament
+        </td>
+        <td>
+            @item.Doza
+        </td>
+        <td>
+            @item.Pret
+        </td>
+        
+    </tr>
+        }
+    </table>
+}
+
+@if (Model.Furnizori != null)
+    {
+        <h3>
+            Furnizorul produsului selectat
+        </h3>
+        <table class="table">
+            <tr>
+                <th>Nume Furnizor</th>
+                <th>Adresa</th>
+                <th>Telefon</th>
+                <th>Email</th>
+            </tr>
+            @foreach (var item in Model.Furnizori)
+            {
+                <tr>
+                    <td>
+                        @item.NumeFurnizor
+                    </td>
+                    <td>
+                        @item.Adresa
+                    </td>
+                    <td>
+                        @item.Telefon
+                    </td>
+                    <td>
+                        @item.Email
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+
+
+
+
